@@ -470,13 +470,6 @@ where
 		config: &evm::Config,
 	) -> Result<CreateInfo, RunnerError<Self::Error>> {
 		if validate {
-			if !whitelist.contains(&source) {
-				return Err(RunnerError {
-					error: Error::<T>::NotAllowed,
-					weight: Weight::zero(),
-				});
-			}
-
 			Self::validate(
 				source,
 				None,
